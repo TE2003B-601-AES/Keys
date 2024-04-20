@@ -1,0 +1,5 @@
+#Ignorar carpeta db al subir al repostorio 
+#(contiene archivos temporales generados durante la compilacion)
+#No son necesarios para correr el proyecto
+
+/db/
