@@ -8,3 +8,10 @@ Encriptador basado en AES en un FPGA DE10-Lite
 
 | Supervisors  |                Israel, José Aguilar, Ezzat y Ricardo             |
 |--------------|------------------------------------------------------------------|
+
+## Modules
+|               |    Modules    |
+|---------------|---------------|
+|    RotWord    |     Pending   |
+|    SubBytes   |     Pending   |
+|      Xor      |     Pending   |
