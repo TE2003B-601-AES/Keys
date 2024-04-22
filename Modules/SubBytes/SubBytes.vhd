@@ -18,7 +18,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 -- Declaración de la entidad
-entity SubBytes_keys is
+entity SubBytes is
     Port (
         -- Entrada de datos.
         rotatedWord	: in  std_logic_vector(31 downto 0); --Input de 32 bits que viene de rotWord.
@@ -28,7 +28,7 @@ entity SubBytes_keys is
 end SubBytes_keys;
 
 -- Definición de la Arquitectura.
-architecture Behavioral of SubBytes_keys is
+architecture Behavioral of SubBytes is
     -- signals internas para cada byte.
     signal byte0, byte1, byte2, byte3: std_logic_vector(7 downto 0);
 
