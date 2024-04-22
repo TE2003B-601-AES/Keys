@@ -25,7 +25,7 @@ entity SubBytes is
         -- Salida de datos.
         suBytedWord	: out std_logic_vector(31 downto 0) --Output de 32 bits. 
     );
-end SubBytes_keys;
+end SubBytes;
 
 -- Definición de la Arquitectura.
 architecture Behavioral of SubBytes is
