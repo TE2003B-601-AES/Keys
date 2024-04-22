@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company:				ITESM - IRS 2024
 -- 
--- Create Date: 		16/04/2024
+-- Create Date: 		22/04/2024
 -- Design Name: 		Sub Bytes
 -- Module Name:		Sub Bytes Module
 -- Target Devices: 	DE10-Lite
@@ -19,7 +19,7 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 -- Entity declaration
-entity YourEntityName is
+entity SubBytes is
     Port (
         -- Input ports
         input_port_1 : in std_logic;
@@ -28,10 +28,10 @@ entity YourEntityName is
         output_port_1 : out std_logic;
         output_port_2 : out std_logic
     );
-end YourEntityName;
+end SubBytes;
 
 -- Architecture definition
-architecture Behavioral of YourEntityName is
+architecture Behavioral of SubBytes is
 
     -- Internal signals
     signal internal_signal : std_logic;

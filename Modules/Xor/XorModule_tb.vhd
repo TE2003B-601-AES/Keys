@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
 -- Company:				ITESM - IRS 2024
 -- 
--- Create Date: 		16/04/2024
--- Design Name: 		Mix Column TestBench
--- Module Name:		Mix Column Module TestBench
+-- Create Date: 		22/04/2024
+-- Design Name: 		Xor TestBench
+-- Module Name:		Xor Module TestBench
 -- Target Devices: 	DE10-Lite
--- Description: 		TestBench del módulo Mix Column
+-- Description: 		TestBench del módulo Xor
 --
 -- Version 0.0 - File Creation
 -- Additional Comments: 
@@ -19,11 +19,11 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 -- Entity declaration for testbench
-entity YourEntityName_tb is
-end YourEntityName_tb;
+entity XorModule_tb is
+end XorModule_tb;
 
 -- Architecture definition for testbench
-architecture tb_architecture of YourEntityName_tb is
+architecture tb_architecture of XorModule_tb is
 
     -- Constants declaration
     constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
@@ -35,7 +35,7 @@ architecture tb_architecture of YourEntityName_tb is
     signal output_port_2_tb : std_logic;
 
     -- Component declaration for DUT (Device Under Test)
-    component YourEntityName
+    component XorModule
         Port (
             input_port_1 : in std_logic;
             input_port_2 : in std_logic;
@@ -70,7 +70,7 @@ architecture tb_architecture of YourEntityName_tb is
 
     -- Instantiate the DUT
     begin
-        dut: YourEntityName
+        dut: XorModule
             port map (
                 input_port_1 => input_port_1_tb,
                 input_port_2 => input_port_2_tb,
@@ -79,4 +79,4 @@ architecture tb_architecture of YourEntityName_tb is
             );
     end architecture tb_architecture;
 
-end YourEntityName_tb;
+end XorModule_tb;

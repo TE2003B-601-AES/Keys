@@ -19,14 +19,14 @@
 #
 # Quartus Prime
 # Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-# Date created = 23:26:01  April 16, 2024
+# Date created = 07:58:28  April 22, 2024
 #
 # -------------------------------------------------------------------------- #
 #
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		Encriptador_assignment_defaults.qdf
+#		Keys_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -39,9 +39,9 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY Top
+set_global_assignment -name TOP_LEVEL_ENTITY Keys
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:26:01  APRIL 16, 2024"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "07:58:28  APRIL 22, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
@@ -55,48 +55,38 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name VHDL_FILE Top.vhd
+set_global_assignment -name VHDL_FILE Top_tb.vhd
+set_global_assignment -name VHDL_FILE Modules/SubBytes/SubBytes.vhd
+set_global_assignment -name VHDL_FILE Modules/SubBytes/SubBytes_tb.vhd
+set_global_assignment -name VHDL_FILE Modules/RotWord/RotWord.vhd
+set_global_assignment -name VHDL_FILE Modules/RotWord/RotWord_tb.vhd
+set_global_assignment -name VHDL_FILE Modules/Xor/XorModule.vhd
+set_global_assignment -name VHDL_FILE Modules/Xor/XorModule_tb.vhd
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE Top_tb.vhd
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH Top_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME Top_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Top_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id Top_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Top_tb -section_id Top_tb
-set_global_assignment -name VHDL_FILE Modules/AddRound/AddRound.vhd
-set_global_assignment -name VHDL_FILE Modules/AddRound/AddRound_tb.vhd
-set_global_assignment -name EDA_TEST_BENCH_NAME AddRound_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id AddRound_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id AddRound_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME AddRound_tb -section_id AddRound_tb
-set_global_assignment -name VHDL_FILE Modules/SubBytes/SubBytes.vhd
-set_global_assignment -name VHDL_FILE Modules/ShiftRow/ShiftRow.vhd
-set_global_assignment -name VHDL_FILE Modules/MixColumn/MixColumn.vhd
-set_global_assignment -name VHDL_FILE Modules/SubBytes/SubBytes_tb.vhd
-set_global_assignment -name VHDL_FILE Modules/ShiftRow/ShiftRow_tb.vhd
-set_global_assignment -name VHDL_FILE Modules/MixColumn/MixColumn_tb.vhd
-set_global_assignment -name VHDL_FILE Modules/Keys/Keys.vhd
-set_global_assignment -name VHDL_FILE Modules/Keys/Keys_tb.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE Top_tb.vhd -section_id Top_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE Modules/AddRound/AddRound_tb.vhd -section_id AddRound_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME RotWord_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id RotWord_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id RotWord_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME RotWord_tb -section_id RotWord_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME SubBytes_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SubBytes_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id SubBytes_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SubBytes_tb -section_id SubBytes_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME XorModule_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id XorModule_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id XorModule_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME XorModule_tb -section_id XorModule_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE Top_tb.vhd -section_id Top_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE Modules/RotWord/RotWord_tb.vhd -section_id RotWord_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE Modules/SubBytes/SubBytes_tb.vhd -section_id SubBytes_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME ShiftRow_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ShiftRow_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id ShiftRow_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ShiftRow_tb -section_id ShiftRow_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE Modules/ShiftRow/ShiftRow_tb.vhd -section_id ShiftRow_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME MixColumn -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id MixColumn
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id MixColumn
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MixColumn -section_id MixColumn
-set_global_assignment -name EDA_TEST_BENCH_FILE Modules/MixColumn/MixColumn_tb.vhd -section_id MixColumn
-set_global_assignment -name EDA_TEST_BENCH_NAME Keys_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Keys_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id Keys_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Keys_tb -section_id Keys_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE Modules/Keys/Keys_tb.vhd -section_id Keys_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE Modules/Xor/XorModule_tb.vhd -section_id XorModule_tb
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

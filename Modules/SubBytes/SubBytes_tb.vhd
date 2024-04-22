@@ -19,11 +19,11 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 -- Entity declaration for testbench
-entity YourEntityName_tb is
-end YourEntityName_tb;
+entity SubBytes_tb is
+end SubBytes_tb;
 
 -- Architecture definition for testbench
-architecture tb_architecture of YourEntityName_tb is
+architecture tb_architecture of SubBytes_tb is
 
     -- Constants declaration
     constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
@@ -35,7 +35,7 @@ architecture tb_architecture of YourEntityName_tb is
     signal output_port_2_tb : std_logic;
 
     -- Component declaration for DUT (Device Under Test)
-    component YourEntityName
+    component SubBytes
         Port (
             input_port_1 : in std_logic;
             input_port_2 : in std_logic;
@@ -70,7 +70,7 @@ architecture tb_architecture of YourEntityName_tb is
 
     -- Instantiate the DUT
     begin
-        dut: YourEntityName
+        dut: SubBytes
             port map (
                 input_port_1 => input_port_1_tb,
                 input_port_2 => input_port_2_tb,
@@ -79,4 +79,4 @@ architecture tb_architecture of YourEntityName_tb is
             );
     end architecture tb_architecture;
 
-end YourEntityName_tb;
+end SubBytes_tb;
