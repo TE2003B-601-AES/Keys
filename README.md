@@ -13,5 +13,5 @@ Encriptador basado en AES en un FPGA DE10-Lite
 |               |    Modules    |
 |---------------|---------------|
 |    RotWord    |     Done      |
-|    SubBytes   |     Pending   |
+|    SubBytes   |     Done      |
 |      Xor      |     Pending   |
