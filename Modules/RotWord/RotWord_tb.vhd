@@ -25,16 +25,7 @@ end RotWord_tb;
 -- Architecture definition for testbench
 architecture tb_architecture of RotWord_tb is
 
-    -- Constants declaration
-    constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
-
-    -- Signals declaration
-    signal input_port_1_tb : std_logic := '0';  -- Test input signals
-    signal input_port_2_tb : std_logic := '0';
-    signal output_port_1_tb : std_logic;  -- Test output signals
-    signal output_port_2_tb : std_logic;
-
-    -- Component declaration for DUT (Device Under Test)
+     -- Component declaration for DUT (Device Under Test)
     component RotWord
         Port (
             input_port_1 : in std_logic;
@@ -44,15 +35,36 @@ architecture tb_architecture of RotWord_tb is
         );
     end component;
 
-    -- Clock process
-    process
+    -- Signals declaration
+    signal input_port_1_tb : std_logic := '0';  -- Test input signals
+    signal input_port_2_tb : std_logic := '0';
+    signal output_port_1_tb : std_logic;  -- Test output signals
+    signal output_port_2_tb : std_logic;
+	 
+	 -- Constants declaration
+    constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
+
+	-- Instantiate the DUT
     begin
-        while now < 1000 ns loop  -- Simulate for 1000 ns
-            wait for CLK_PERIOD / 2;
-            input_port_1_tb <= not input_port_1_tb;  -- Toggle the clock
-        end loop;
-        wait;
-    end process;
+        dut: RotWord
+            port map (
+                input_port_1 => input_port_1_tb,
+                input_port_2 => input_port_2_tb,
+                output_port_1 => output_port_1_tb,
+                output_port_2 => output_port_2_tb
+            );
+	 
+    -- Clock process
+	process
+	begin
+		 while now < 1000 ns loop  -- Simulate for 1000 ns
+			  wait for CLK_PERIOD / 2;
+			  input_port_1_tb <= not input_port_1_tb;  -- Toggle the clock
+		 end loop;
+		 wait;
+	end process;
+
+
 
     -- Stimulus process
     process
@@ -68,15 +80,5 @@ architecture tb_architecture of RotWord_tb is
         wait;
     end process;
 
-    -- Instantiate the DUT
-    begin
-        dut: RotWord
-            port map (
-                input_port_1 => input_port_1_tb,
-                input_port_2 => input_port_2_tb,
-                output_port_1 => output_port_1_tb,
-                output_port_2 => output_port_2_tb
-            );
-    end architecture tb_architecture;
-
-end RotWord_tb;
+    
+end architecture tb_architecture;
