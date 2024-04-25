@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition"
 
--- DATE "04/24/2024 13:17:42"
+-- DATE "04/25/2024 10:05:05"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -90,8 +90,8 @@ ENTITY 	Top IS
     PORT (
 	input_port_1 : IN std_logic;
 	input_port_2 : IN std_logic;
-	output_port_1 : BUFFER std_logic;
-	output_port_2 : BUFFER std_logic
+	output_port_1 : OUT std_logic;
+	output_port_2 : OUT std_logic
 	);
 END Top;
 
