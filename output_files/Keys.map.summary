@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Apr 25 10:04:04 2024
+Analysis & Synthesis Status : Successful - Mon Apr 29 20:16:23 2024
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : Keys
-Top-level Entity Name : Top
+Top-level Entity Name : SubBytes
 Family : MAX 10
-Total logic elements : 2
-    Total combinational functions : 2
+Total logic elements : 832
+    Total combinational functions : 832
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 4
+Total pins : 67
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

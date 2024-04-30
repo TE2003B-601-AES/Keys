@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Keys
-Thu Apr 25 10:04:04 2024
+Mon Apr 29 20:16:23 2024
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -43,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 25 10:04:04 2024       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 29 20:16:23 2024       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; Keys                                        ;
-; Top-level Entity Name              ; Top                                         ;
+; Top-level Entity Name              ; SubBytes                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 2                                           ;
-;     Total combinational functions  ; 2                                           ;
+; Total logic elements               ; 832                                         ;
+;     Total combinational functions  ; 832                                         ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 4                                           ;
+; Total pins                         ; 67                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; Top                ; Keys               ;
+; Top-level entity name                                            ; SubBytes           ; Keys               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -148,61 +148,56 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; Top.vhd                          ; yes             ; User VHDL File  ; C:/ProyQuartus/Keys/Keys/Top.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                      ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
+; Modules/SubBytes/SubBytes.vhd    ; yes             ; User VHDL File  ; C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimated Total logic elements              ; 2                  ;
-;                                             ;                    ;
-; Total combinational functions               ; 2                  ;
-; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 0                  ;
-;     -- 3 input functions                    ; 0                  ;
-;     -- <=2 input functions                  ; 2                  ;
-;                                             ;                    ;
-; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 2                  ;
-;     -- arithmetic mode                      ; 0                  ;
-;                                             ;                    ;
-; Total registers                             ; 0                  ;
-;     -- Dedicated logic registers            ; 0                  ;
-;     -- I/O registers                        ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 4                  ;
-;                                             ;                    ;
-; Embedded Multiplier 9-bit elements          ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; input_port_1~input ;
-; Maximum fan-out                             ; 2                  ;
-; Total fan-out                               ; 10                 ;
-; Average fan-out                             ; 1.00               ;
-+---------------------------------------------+--------------------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 832                  ;
+;                                             ;                      ;
+; Total combinational functions               ; 832                  ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 824                  ;
+;     -- 3 input functions                    ; 8                    ;
+;     -- <=2 input functions                  ; 0                    ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 832                  ;
+;     -- arithmetic mode                      ; 0                    ;
+;                                             ;                      ;
+; Total registers                             ; 0                    ;
+;     -- Dedicated logic registers            ; 0                    ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 67                   ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; rotatedWord[1]~input ;
+; Maximum fan-out                             ; 106                  ;
+; Total fan-out                               ; 3419                 ;
+; Average fan-out                             ; 3.54                 ;
++---------------------------------------------+----------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +205,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |Top                       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |Top                ; Top         ; work         ;
+; |SubBytes                  ; 832 (832)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 67   ; 0            ; 0          ; |SubBytes           ; SubBytes    ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -235,13 +230,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 4                           ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         2 data inputs ; 2                           ;
+; boundary_port         ; 67                          ;
+; cycloneiii_lcell_comb ; 833                         ;
+;     normal            ; 833                         ;
+;         0 data inputs ; 1                           ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 824                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 1.00                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 4.25                        ;
 +-----------------------+-----------------------------+
 
 
@@ -250,7 +247,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -260,53 +257,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Thu Apr 25 10:03:40 2024
+    Info: Processing started: Mon Apr 29 20:15:47 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Keys -c Keys
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20029): Only one processor detected - disabling parallel compilation
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: Top-Behavioral File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 35
-    Info (12023): Found entity 1: Top File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 23
+    Info (12022): Found design unit 1: Top-Behavioral File: C:/Quartus/AES/Keys/Top.vhd Line: 35
+    Info (12023): Found entity 1: Top File: C:/Quartus/AES/Keys/Top.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file top_tb.vhd
-    Info (12022): Found design unit 1: Top_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 26
-    Info (12023): Found entity 1: Top_tb File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 22
+    Info (12022): Found design unit 1: Top_tb-tb_architecture File: C:/Quartus/AES/Keys/Top_tb.vhd Line: 26
+    Info (12023): Found entity 1: Top_tb File: C:/Quartus/AES/Keys/Top_tb.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file modules/subbytes/subbytes.vhd
-    Info (12022): Found design unit 1: SubBytes-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 32
-    Info (12023): Found entity 1: SubBytes File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 22
+    Info (12022): Found design unit 1: SubBytes-Behavioral File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 34
+    Info (12023): Found entity 1: SubBytes File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 21
 Info (12021): Found 2 design units, including 1 entities, in source file modules/subbytes/subbytes_tb.vhd
-    Info (12022): Found design unit 1: SubBytes_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 26
-    Info (12023): Found entity 1: SubBytes_tb File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 22
+    Info (12022): Found design unit 1: SubBytes_tb-SubBytes_tb_Arch File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 26
+    Info (12023): Found entity 1: SubBytes_tb File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file modules/rotword/rotword.vhd
-    Info (12022): Found design unit 1: RotWord-behaveRot File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord.vhd Line: 32
-    Info (12023): Found entity 1: RotWord File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord.vhd Line: 24
+    Info (12022): Found design unit 1: RotWord-behaveRot File: C:/Quartus/AES/Keys/Modules/RotWord/RotWord.vhd Line: 32
+    Info (12023): Found entity 1: RotWord File: C:/Quartus/AES/Keys/Modules/RotWord/RotWord.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file modules/rotword/rotword_tb.vhd
-    Info (12022): Found design unit 1: RotWord_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 26
-    Info (12023): Found entity 1: RotWord_tb File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file modules/xor/xormodule.vhd
-    Info (12022): Found design unit 1: XorModule-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 34
-    Info (12023): Found entity 1: XorModule File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 22
+    Info (12022): Found design unit 1: RotWord_tb-tb_architecture File: C:/Quartus/AES/Keys/Modules/RotWord/RotWord_tb.vhd Line: 26
+    Info (12023): Found entity 1: RotWord_tb File: C:/Quartus/AES/Keys/Modules/RotWord/RotWord_tb.vhd Line: 22
+Info (12021): Found 0 design units, including 0 entities, in source file modules/xor/xormodule.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file modules/xor/xormodule_tb.vhd
-    Info (12022): Found design unit 1: XorModule_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 26
-    Info (12023): Found entity 1: XorModule_tb File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 22
+    Info (12022): Found design unit 1: XorModule_tb-tb_architecture File: C:/Quartus/AES/Keys/Modules/Xor/XorModule_tb.vhd Line: 26
+    Info (12023): Found entity 1: XorModule_tb File: C:/Quartus/AES/Keys/Modules/Xor/XorModule_tb.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file modules/ram/ram.vhd
-    Info (12022): Found design unit 1: RAM-RAM_ARCH File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM.vhd Line: 31
-    Info (12023): Found entity 1: RAM File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM.vhd Line: 18
+    Info (12022): Found design unit 1: RAM-RAM_ARCH File: C:/Quartus/AES/Keys/Modules/RAM/RAM.vhd Line: 31
+    Info (12023): Found entity 1: RAM File: C:/Quartus/AES/Keys/Modules/RAM/RAM.vhd Line: 18
 Info (12021): Found 2 design units, including 1 entities, in source file modules/ram/ram_tb.vhd
-    Info (12022): Found design unit 1: RAM_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM_tb.vhd Line: 26
-    Info (12023): Found entity 1: RAM_tb File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM_tb.vhd Line: 22
-Info (12127): Elaborating entity "Top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Top.vhd(38): object "internal_signal" assigned a value but never read File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 38
+    Info (12022): Found design unit 1: RAM_tb-tb_architecture File: C:/Quartus/AES/Keys/Modules/RAM/RAM_tb.vhd Line: 26
+    Info (12023): Found entity 1: RAM_tb File: C:/Quartus/AES/Keys/Modules/RAM/RAM_tb.vhd Line: 22
+Info (12127): Elaborating entity "SubBytes" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at SubBytes.vhd(25): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 25
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Finish" is stuck at GND File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 25
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 2 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4796 megabytes
-    Info: Processing ended: Thu Apr 25 10:04:04 2024
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:47
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Start" File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 23
+    Warning (15610): No output dependent on input pin "Clk" File: C:/Quartus/AES/Keys/Modules/SubBytes/SubBytes.vhd Line: 24
+Info (21057): Implemented 899 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 34 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 832 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Mon Apr 29 20:16:23 2024
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:44
 
 
