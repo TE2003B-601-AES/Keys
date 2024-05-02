@@ -1,0 +1,116 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ProyQuartus/Keys/Keys/simulation/modelsim
+T_opt
+!s110 1714656547
+V;UGfDXGTRARg^KDlWnX8`3
+04 6 15 work top_tb tb_architecture 1
+=1-b888e362329d-66339521-3de-12a8
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Etop
+Z1 w1714630398
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z7 8C:/ProyQuartus/Keys/Keys/Top.vhd
+Z8 FC:/ProyQuartus/Keys/Keys/Top.vhd
+l0
+L24 1
+VT7NY1KbGdCIIdEI7@GlCM2
+!s100 9I1KJzj^aYMIUEL:H<ehB2
+Z9 OL;C;2021.2;73
+31
+Z10 !s110 1714656543
+!i10b 1
+Z11 !s108 1714656543.000000
+Z12 !s90 -reportprogress|300|-93|-work|work|C:/ProyQuartus/Keys/Keys/Top.vhd|
+Z13 !s107 C:/ProyQuartus/Keys/Keys/Top.vhd|
+!i113 0
+Z14 o-93 -work work
+Z15 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+R6
+DEx4 work 3 top 0 22 T7NY1KbGdCIIdEI7@GlCM2
+!i122 0
+l87
+L40 102
+V<>5]iQ75`7QAo3i[Q::NF0
+!s100 hH;mW>77MACI<blORe?KD1
+R9
+31
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Etop_tb
+Z16 w1714630406
+R2
+R3
+R4
+R5
+R6
+!i122 1
+R0
+Z17 8C:/ProyQuartus/Keys/Keys/Top_tb.vhd
+Z18 FC:/ProyQuartus/Keys/Keys/Top_tb.vhd
+l0
+L23 1
+VmfESO@[;YZl;AFGf]Z3?83
+!s100 jXzmOizV4bA0;d@KX`z4R2
+R9
+31
+Z19 !s110 1714656544
+!i10b 1
+Z20 !s108 1714656544.000000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/ProyQuartus/Keys/Keys/Top_tb.vhd|
+Z22 !s107 C:/ProyQuartus/Keys/Keys/Top_tb.vhd|
+!i113 0
+R14
+R15
+Atb_architecture
+R2
+R3
+R4
+R5
+R6
+DEx4 work 6 top_tb 0 22 mfESO@[;YZl;AFGf]Z3?83
+!i122 1
+l58
+L27 80
+VYA6?5aCTi;FCJhWV;5`Gi3
+!s100 JdblFG2NE;RfL8mIX90S<2
+R9
+31
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 0
+R14
+R15

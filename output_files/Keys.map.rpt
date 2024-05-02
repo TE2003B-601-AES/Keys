@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Keys
-Thu Apr 25 10:04:04 2024
+Thu May  2 07:26:40 2024
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -14,9 +14,10 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Inverted Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 25 10:04:04 2024       ;
+; Analysis & Synthesis Status        ; Successful - Thu May  2 07:26:40 2024       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; Keys                                        ;
 ; Top-level Entity Name              ; Top                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 2                                           ;
-;     Total combinational functions  ; 2                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 4                                           ;
+; Total logic elements               ; 3,295                                       ;
+;     Total combinational functions  ; 2,665                                       ;
+;     Dedicated logic registers      ; 1,569                                       ;
+; Total registers                    ; 1569                                        ;
+; Total pins                         ; 136                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -157,10 +158,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -173,36 +175,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+----------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimated Total logic elements              ; 2                  ;
-;                                             ;                    ;
-; Total combinational functions               ; 2                  ;
-; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 0                  ;
-;     -- 3 input functions                    ; 0                  ;
-;     -- <=2 input functions                  ; 2                  ;
-;                                             ;                    ;
-; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 2                  ;
-;     -- arithmetic mode                      ; 0                  ;
-;                                             ;                    ;
-; Total registers                             ; 0                  ;
-;     -- Dedicated logic registers            ; 0                  ;
-;     -- I/O registers                        ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 4                  ;
-;                                             ;                    ;
-; Embedded Multiplier 9-bit elements          ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; input_port_1~input ;
-; Maximum fan-out                             ; 2                  ;
-; Total fan-out                               ; 10                 ;
-; Average fan-out                             ; 1.00               ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,295     ;
+;                                             ;           ;
+; Total combinational functions               ; 2665      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1680      ;
+;     -- 3 input functions                    ; 198       ;
+;     -- <=2 input functions                  ; 787       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2635      ;
+;     -- arithmetic mode                      ; 30        ;
+;                                             ;           ;
+; Total registers                             ; 1569      ;
+;     -- Dedicated logic registers            ; 1569      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 136       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; Clk~input ;
+; Maximum fan-out                             ; 1569      ;
+; Total fan-out                               ; 13366     ;
+; Average fan-out                             ; 2.97      ;
++---------------------------------------------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +212,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |Top                       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |Top                ; Top         ; work         ;
+; |Top                       ; 2665 (2665)         ; 1569 (1569)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 136  ; 0            ; 0          ; |Top                ; Top         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -220,14 +222,88 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 1569  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 128   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 1537  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; CypherKeyIn[2]                          ; 97      ;
+; CypherKeyIn[3]                          ; 95      ;
+; CypherKeyIn[4]                          ; 89      ;
+; CypherKeyIn[5]                          ; 87      ;
+; CypherKeyIn[8]                          ; 92      ;
+; CypherKeyIn[9]                          ; 118     ;
+; CypherKeyIn[10]                         ; 97      ;
+; CypherKeyIn[11]                         ; 95      ;
+; CypherKeyIn[14]                         ; 90      ;
+; CypherKeyIn[16]                         ; 92      ;
+; CypherKeyIn[17]                         ; 118     ;
+; CypherKeyIn[18]                         ; 97      ;
+; CypherKeyIn[19]                         ; 95      ;
+; CypherKeyIn[22]                         ; 90      ;
+; CypherKeyIn[23]                         ; 58      ;
+; CypherKeyIn[24]                         ; 92      ;
+; CypherKeyIn[27]                         ; 95      ;
+; CypherKeyIn[35]                         ; 12      ;
+; CypherKeyIn[39]                         ; 12      ;
+; CypherKeyIn[40]                         ; 13      ;
+; CypherKeyIn[42]                         ; 12      ;
+; CypherKeyIn[44]                         ; 13      ;
+; CypherKeyIn[48]                         ; 12      ;
+; CypherKeyIn[49]                         ; 13      ;
+; CypherKeyIn[50]                         ; 13      ;
+; CypherKeyIn[52]                         ; 12      ;
+; CypherKeyIn[53]                         ; 13      ;
+; CypherKeyIn[54]                         ; 13      ;
+; CypherKeyIn[55]                         ; 12      ;
+; CypherKeyIn[56]                         ; 12      ;
+; CypherKeyIn[57]                         ; 13      ;
+; CypherKeyIn[59]                         ; 13      ;
+; CypherKeyIn[61]                         ; 13      ;
+; CypherKeyIn[63]                         ; 13      ;
+; CypherKeyIn[65]                         ; 13      ;
+; CypherKeyIn[66]                         ; 14      ;
+; CypherKeyIn[69]                         ; 14      ;
+; CypherKeyIn[71]                         ; 13      ;
+; CypherKeyIn[73]                         ; 14      ;
+; CypherKeyIn[76]                         ; 14      ;
+; CypherKeyIn[78]                         ; 13      ;
+; CypherKeyIn[79]                         ; 13      ;
+; CypherKeyIn[81]                         ; 14      ;
+; CypherKeyIn[82]                         ; 14      ;
+; CypherKeyIn[83]                         ; 13      ;
+; CypherKeyIn[85]                         ; 14      ;
+; CypherKeyIn[87]                         ; 13      ;
+; CypherKeyIn[91]                         ; 12      ;
+; CypherKeyIn[93]                         ; 14      ;
+; CypherKeyIn[97]                         ; 14      ;
+; CypherKeyIn[98]                         ; 15      ;
+; CypherKeyIn[100]                        ; 15      ;
+; CypherKeyIn[104]                        ; 15      ;
+; CypherKeyIn[106]                        ; 14      ;
+; CypherKeyIn[108]                        ; 15      ;
+; CypherKeyIn[113]                        ; 15      ;
+; CypherKeyIn[114]                        ; 15      ;
+; CypherKeyIn[115]                        ; 14      ;
+; CypherKeyIn[116]                        ; 14      ;
+; CypherKeyIn[117]                        ; 15      ;
+; CypherKeyIn[118]                        ; 15      ;
+; CypherKeyIn[120]                        ; 12      ;
+; CypherKeyIn[121]                        ; 14      ;
+; CypherKeyIn[123]                        ; 13      ;
+; CypherKeyIn[125]                        ; 15      ;
+; Total number of inverted registers = 65 ;         ;
++-----------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -235,13 +311,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 4                           ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         2 data inputs ; 2                           ;
+; boundary_port         ; 136                         ;
+; cycloneiii_ff         ; 1569                        ;
+;     ENA               ; 1409                        ;
+;     ENA SLD           ; 128                         ;
+;     plain             ; 32                          ;
+; cycloneiii_lcell_comb ; 2665                        ;
+;     arith             ; 30                          ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 2635                        ;
+;         1 data inputs ; 718                         ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 197                         ;
+;         4 data inputs ; 1680                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 1.00                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 3.36                        ;
 +-----------------------+-----------------------------+
 
 
@@ -250,7 +336,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:24     ;
 +----------------+--------------+
 
 
@@ -260,34 +346,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Thu Apr 25 10:03:40 2024
+    Info: Processing started: Thu May  2 07:25:53 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Keys -c Keys
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: Top-Behavioral File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 35
-    Info (12023): Found entity 1: Top File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 23
+    Info (12022): Found design unit 1: Top-Behavioral File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 40
+    Info (12023): Found entity 1: Top File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file top_tb.vhd
-    Info (12022): Found design unit 1: Top_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 26
-    Info (12023): Found entity 1: Top_tb File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 22
+    Info (12022): Found design unit 1: Top_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 27
+    Info (12023): Found entity 1: Top_tb File: C:/ProyQuartus/Keys/Keys/Top_tb.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file modules/subbytes/subbytes.vhd
-    Info (12022): Found design unit 1: SubBytes-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 32
-    Info (12023): Found entity 1: SubBytes File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 22
+    Info (12022): Found design unit 1: SubBytes-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 34
+    Info (12023): Found entity 1: SubBytes File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes.vhd Line: 21
 Info (12021): Found 2 design units, including 1 entities, in source file modules/subbytes/subbytes_tb.vhd
-    Info (12022): Found design unit 1: SubBytes_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 26
+    Info (12022): Found design unit 1: SubBytes_tb-SubBytes_tb_Arch File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 26
     Info (12023): Found entity 1: SubBytes_tb File: C:/ProyQuartus/Keys/Keys/Modules/SubBytes/SubBytes_tb.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file modules/rotword/rotword.vhd
     Info (12022): Found design unit 1: RotWord-behaveRot File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord.vhd Line: 32
     Info (12023): Found entity 1: RotWord File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file modules/rotword/rotword_tb.vhd
-    Info (12022): Found design unit 1: RotWord_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 26
-    Info (12023): Found entity 1: RotWord_tb File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 22
+    Info (12022): Found design unit 1: rotWord_tb-rotWord_ARCH_tb File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 29
+    Info (12023): Found entity 1: rotWord_tb File: C:/ProyQuartus/Keys/Keys/Modules/RotWord/RotWord_tb.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file modules/xor/xormodule.vhd
-    Info (12022): Found design unit 1: XorModule-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 34
-    Info (12023): Found entity 1: XorModule File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 22
+    Info (12022): Found design unit 1: XorModule-Behavioral File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 30
+    Info (12023): Found entity 1: XorModule File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule.vhd Line: 21
 Info (12021): Found 2 design units, including 1 entities, in source file modules/xor/xormodule_tb.vhd
-    Info (12022): Found design unit 1: XorModule_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 26
-    Info (12023): Found entity 1: XorModule_tb File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 22
+    Info (12022): Found design unit 1: XorModule_tb-XorModule_tb_Arch File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 24
+    Info (12023): Found entity 1: XorModule_tb File: C:/ProyQuartus/Keys/Keys/Modules/Xor/XorModule_tb.vhd Line: 21
 Info (12021): Found 2 design units, including 1 entities, in source file modules/ram/ram.vhd
     Info (12022): Found design unit 1: RAM-RAM_ARCH File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM.vhd Line: 31
     Info (12023): Found entity 1: RAM File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM.vhd Line: 18
@@ -295,18 +381,21 @@ Info (12021): Found 2 design units, including 1 entities, in source file modules
     Info (12022): Found design unit 1: RAM_tb-tb_architecture File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM_tb.vhd Line: 26
     Info (12023): Found entity 1: RAM_tb File: C:/ProyQuartus/Keys/Keys/Modules/RAM/RAM_tb.vhd Line: 22
 Info (12127): Elaborating entity "Top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Top.vhd(38): object "internal_signal" assigned a value but never read File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 38
+Warning (10036): Verilog HDL or VHDL warning at Top.vhd(43): object "kk" assigned a value but never read File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 43
+Warning (10036): Verilog HDL or VHDL warning at Top.vhd(45): object "KEY_AUX" assigned a value but never read File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 45
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "memory" is uninferred due to asynchronous read logic File: C:/ProyQuartus/Keys/Keys/Top.vhd Line: 85
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 2 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4796 megabytes
-    Info: Processing ended: Thu Apr 25 10:04:04 2024
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:47
+Info (21057): Implemented 3449 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 129 output pins
+    Info (21061): Implemented 3313 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4813 megabytes
+    Info: Processing ended: Thu May  2 07:26:40 2024
+    Info: Elapsed time: 00:00:47
+    Info: Total CPU time (on all processors): 00:01:08
 
 

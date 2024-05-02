@@ -1,26 +1,28 @@
 ----------------------------------------------------------------------------------
 -- Company:				ITESM - IRS 2024
--- Engineer:       	Sebastián Castellanos
+-- Engineers: 			Sebastián Castellanos, Diego Quezada and Eduardo Viveros
 -- 
--- Create Date: 		22/04/2024
--- Design Name: 		Sub Bytes
--- Module Name:		Sub Bytes Module
+-- Create Date: 		13: 11: 08 21/04/2024
+-- Design Name: 		SubBytes_keys
+-- Module Name:		SubBytes
 -- Target Devices: 	DE10-Lite
--- Description: 		Sub Bytes Module
+-- Description: 		Value substitution of the input rotWord using the S-Box table for the second step of the key schedule.
 --
 -- Version 0.0 - File Creation
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-
 -- Librerías utilizadas.
-library IEEE;
+library IEEE;		
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 -- Declaración de la entidad
 entity SubBytes is
     Port (
+		Start				: in STD_LOGIC;
+		Clk 				: in STD_LOGIC;
+		Finish			: out STD_LOGIC;
         -- Entrada de datos.
         rotatedWord	: in  std_logic_vector(31 downto 0); --Input de 32 bits que viene de rotWord.
         -- Salida de datos.
@@ -53,7 +55,6 @@ architecture Behavioral of SubBytes is
 		x"E1", x"F8", x"98", x"11", x"69", x"D9", x"8E", x"94", x"9B", x"1E", x"87", x"E9", x"CE", x"55", x"28", x"DF",
 		x"8C", x"A1", x"89", x"0D", x"BF", x"E6", x"42", x"68", x"41", x"99", x"2D", x"0F", x"B0", x"54", x"BB", x"16"
 	);
-
 begin
     -- Proceso para dividir el vector de entrada en bytes.
     process(rotatedWord)
@@ -71,7 +72,5 @@ begin
         suBytedWord(15 downto 8)   <= SBox(to_integer(unsigned(byte1)));
         suBytedWord(23 downto 16)  <= SBox(to_integer(unsigned(byte2)));
         suBytedWord(31 downto 24)  <= SBox(to_integer(unsigned(byte3)));
-
     end process;
-
 end Behavioral;

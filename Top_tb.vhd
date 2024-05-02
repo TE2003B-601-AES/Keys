@@ -17,6 +17,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
+--use ieee.std_logic_arith.all;
 
 -- Entity declaration for testbench
 entity Top_tb is
@@ -28,57 +29,78 @@ architecture tb_architecture of Top_tb is
      -- Component declaration for DUT (Device Under Test)
     component Top
         Port (
-            input_port_1 : in std_logic;
-            input_port_2 : in std_logic;
-            output_port_1 : out std_logic;
-            output_port_2 : out std_logic
+				  Start 		: in std_logic;
+				  Clk 		: in std_logic;
+				  Rst 		: in std_logic;
+				  -- Input vector
+				  --CypherKeyIn		: in std_logic_vector(127 downto 0) := "2b28ab097eaef7cf15d2154f16a6883c";
+				  KeySel 	: in std_logic_vector(3 downto 0);
+				  -- Output ports
+				  finish	   : out std_logic;
+				  -- Output vector
+				  KeyOut 	: out std_logic_vector(127 downto 0)
         );
     end component;
 
     -- Signals declaration
-    signal input_port_1_tb : std_logic := '0';  -- Test input signals
-    signal input_port_2_tb : std_logic := '0';
-    signal output_port_1_tb : std_logic;  -- Test output signals
-    signal output_port_2_tb : std_logic;
-	 
-	 -- Constants declaration
-    constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
+   signal Start    		: std_logic						    	:= '0';
+   signal Clk      		: std_logic                      := '0';
+   signal Rst      		: std_logic                      := '0';
+	signal KeySel	   	: std_logic_vector(3 downto 0)   := (others => '0');
+	-- Outputs
+	signal KeyOut			: std_logic_vector(127 downto 0);
+	signal finish		   : std_logic;
+
+   -- Clk Period
+   constant Clk_period : time := 10 ns;	
 
 	-- Instantiate the DUT
-    begin
-        dut: Top
-            port map (
-                input_port_1 => input_port_1_tb,
-                input_port_2 => input_port_2_tb,
-                output_port_1 => output_port_1_tb,
-                output_port_2 => output_port_2_tb
+begin
+        dut: Top port map (
+                Start 	=> Start,
+                Clk 		=> Clk,
+                Rst 		=> Rst,
+                KeySel 	=> KeySel,
+					 KeyOut 	=> KeyOut,
+					 finish 	=> finish
             );
 	 
-    -- Clock process
-	process
-	begin
-		 while now < 1000 ns loop  -- Simulate for 1000 ns
-			  wait for CLK_PERIOD / 2;
-			  input_port_1_tb <= not input_port_1_tb;  -- Toggle the clock
-		 end loop;
-		 wait;
+   -- Clock process definitions
+   Clk_process: process
+   begin
+		Clk <= '0';
+		wait for Clk_period/2;
+		Clk <= '1';
+		wait for Clk_period/2;
 	end process;
 
 
-
-    -- Stimulus process
-    process
-    begin
-        -- Stimulus generation here
-        -- You can write test vectors or any stimuli for your inputs here
-        -- Example:
-        input_port_2_tb <= '0';
-        wait for 20 ns;
-        input_port_2_tb <= '1';
-        wait for 40 ns;
-        input_port_2_tb <= '0';
-        wait;
-    end process;
-
+  -- Stimulus (Test cases) (Note: no sensitivity list)
+  stim_process: process
+  begin
+    -- hold reset state for 100ns, always include the followint statement
+	 wait for Clk_period;
+	 
+	 -- Test Case 1: First Round
+	 Start   <= '1';
+	 wait for 200 ns;
+	 
+	 -- Test Case 2: First Round
+	 Start   <= '0';
+	 wait for 20 ns;
+	 
+	 -- Test case 3
+	 Start   <= '1';
+	 wait for 20 ns;
+	 
+	 -- Test case 4
+	 KeySel <= X"3";
+	 wait for 20 ns;
+	 
+	 KeySel <= X"7";
+	 wait for 20 ns;
+	 wait;
+	 
+  end process;
     
 end architecture tb_architecture;

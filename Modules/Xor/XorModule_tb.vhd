@@ -1,84 +1,69 @@
 ----------------------------------------------------------------------------------
 -- Company:				ITESM - IRS 2024
--- 
+-- Authors: - Jonathan Arles Guevara Molina
+--          - Mario Godínez Chavero
+--          - Grant Nathaniel Keegan
 -- Create Date: 		22/04/2024
--- Design Name: 		Xor TestBench
--- Module Name:		Xor Module TestBench
+-- Design Name: 		Xor
+-- Module Name:		Xor Module test bench
 -- Target Devices: 	DE10-Lite
--- Description: 		TestBench del módulo Xor
+-- Description: 		Xor Module test bench
 --
--- Version 0.0 - File Creation
+-- Version 1.0 - File Creation
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 
--- Commonly used libraries
 library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
-use IEEE.std_logic_unsigned.all;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
--- Entity declaration for testbench
 entity XorModule_tb is
 end XorModule_tb;
 
--- Architecture definition for testbench
-architecture tb_architecture of XorModule_tb is
+architecture XorModule_tb_Arch of XorModule_tb is
 
-     -- Component declaration for DUT (Device Under Test)
-    component XorModule
-        Port (
-            input_port_1 : in std_logic;
-            input_port_2 : in std_logic;
-            output_port_1 : out std_logic;
-            output_port_2 : out std_logic
-        );
-    end component;
-
-    -- Signals declaration
-    signal input_port_1_tb : std_logic := '0';  -- Test input signals
-    signal input_port_2_tb : std_logic := '0';
-    signal output_port_1_tb : std_logic;  -- Test output signals
-    signal output_port_2_tb : std_logic;
-	 
-	 -- Constants declaration
-    constant CLK_PERIOD : time := 10 ns;  -- Clock period (adjust as needed)
-
-	-- Instantiate the DUT
-    begin
-        dut: XorModule
-            port map (
-                input_port_1 => input_port_1_tb,
-                input_port_2 => input_port_2_tb,
-                output_port_1 => output_port_1_tb,
-                output_port_2 => output_port_2_tb
-            );
-	 
-    -- Clock process
-	process
-	begin
-		 while now < 1000 ns loop  -- Simulate for 1000 ns
-			  wait for CLK_PERIOD / 2;
-			  input_port_1_tb <= not input_port_1_tb;  -- Toggle the clock
-		 end loop;
-		 wait;
-	end process;
-
-
-
-    -- Stimulus process
-    process
-    begin
-        -- Stimulus generation here
-        -- You can write test vectors or any stimuli for your inputs here
-        -- Example:
-        input_port_2_tb <= '0';
-        wait for 20 ns;
-        input_port_2_tb <= '1';
-        wait for 40 ns;
-        input_port_2_tb <= '0';
-        wait;
-    end process;
-
-    
-end architecture tb_architecture;
+component XorModule
+ Port(suBytedWord    : in STD_LOGIC_VECTOR(31 downto 0);
+		cypher_key     : in STD_LOGIC_VECTOR(127 downto 0);
+		new_cypher_key : out STD_LOGIC_VECTOR(127 downto 0));
+end component;
+	--Inputs
+	signal suBytedWord    : STD_LOGIC_VECTOR(31 downto 0)  := (others => '0');
+	signal cypher_key     : STD_LOGIC_VECTOR(127 downto 0) := (others => '0'); 
+	--Outputs
+	signal new_cypher_key : STD_LOGIC_VECTOR(127 downto 0);
+	
+--Instantiate the component that will be simulated
+begin
+	DUT: XorModule port map(
+		suBytedWord   => suBytedWord,
+		cypher_key     => cypher_key,
+		new_cypher_key => new_cypher_key);
+		
+--Test cases
+	stim_process : process
+		begin
+			wait for 100 ns;
+			
+			--Test Case 1:
+			suBytedWord <= (x"8a84eb01");
+			cypher_key <= (x"2b7e151628aed2a6abf7158809cf4f3c");
+			wait for 100 ns;
+			
+			-- Test case 2:
+			suBytedWord <= (x"50386be5");
+							cypher_key <= (x"a0fafe1788542cb123a339392a6c7605");
+			wait for 100 ns;	
+			
+		--  x"2b", x"28", x"ab", x"09", 
+       -- x"7e", x"ae", x"f7", x"cf",
+       -- x"15", x"d2", x"15", x"4f", 
+       -- x"16", x"a6", x"88", x"3c"	
+			
+			wait;
+			
+		end process;
+end XorModule_tb_Arch;
+		
+		
