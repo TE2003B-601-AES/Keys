@@ -1,7 +1,9 @@
-
+	   
 ---------------------------------------------------
 -- Company: ITESM - Campus Qro.
--- Autor: Eduardo Viveros
+-- Authors: Diego Quezasa
+--          Eduardo Viveros
+--          Sebas Castellanos
 -- Date: 21/04/2024
 -- DESING: TestBench Subytees_keys
 ---------------------------------------------------
@@ -23,6 +25,9 @@ architecture SubBytes_keys_tb of SubBytes_keys_tb is
    -- Component that will be simulated is declared as a component
 	Component SubBytes_keys
 		Port(
+		     Start			: in STD_LOGIC;
+		     Clk 			: in STD_LOGIC;
+	        Finish			: out STD_LOGIC;
 		     --Entrada
 			  rotatedWord	: in  std_logic_vector(31 downto 0); --Input de 32 bits que viene de rotWord.
            --Salida
@@ -37,8 +42,16 @@ architecture SubBytes_keys_tb of SubBytes_keys_tb is
 	signal rotatedWord   :   std_logic_vector(31 downto 0) := (others => '0'); 
    -- Outputs	
 	signal suBytedWord	:   std_logic_vector(31 downto 0); 
-	-- Intern signals for each byte 
-	signal byte0, byte1, byte2, byte3: std_logic_vector(7 downto 0);
+
+	signal Clk          : std_logic := '0';
+	
+	-- Clock period definitions
+   constant Clk_period : time := 100 ns;
+	
+   signal Start        : std_logic := '0';
+   signal Finish       : std_logic := '0';
+	
+	
 
 --	-- Constant that will be use in the cases     
 --   constant SBox : SBox_array := (
@@ -66,12 +79,27 @@ architecture SubBytes_keys_tb of SubBytes_keys_tb is
 	
 begin
 
-   --Instantiate the component that will be simulated
+   --Instantiate the device that will be simulated
 	DUT : SubBytes_keys port map(
-	
+	      
+			Clk => Clk,
+			Start => Start,
+			Finish => Finish,
 	      rotatedWord => rotatedWord,
 	      suBytedWord => suBytedWord
 	);
+	
+	
+	-- Clk Process
+	Clk_process :process
+   begin
+		Clk <= '0'; -- if the clk is in 0
+		wait for Clk_period/2;  -- wait for 50 ns
+		Clk <= '1';
+		wait for Clk_period/2;
+   end process;
+	
+	
 	
    -- Stimulus (Test cases) (Note: no sensibility list)
 	process
@@ -92,12 +120,19 @@ begin
 		rotatedWord <= x"20308090"; -- example input
 		wait for 10 ns;
 	   assert suBytedWord = x"635C377B" report "Test case 4 failed!" severity error;
-
---		
---		rotatedWord <= "87654321"; -- Test case 2: entrada con patrón ascendente
---	   wait for 10 ns;
---	   assert suBytedWord = "635C377B" report "Test case 2 failed!" severity error;
 		
+		rotatedWord <= x"15167981"; -- example input
+		wait for 10 ns;
+	   assert suBytedWord = x"67C908B9" report "Test case 4 failed!" severity error;
+		
+		rotatedWord <= x"03698704"; -- example input
+		wait for 10 ns;
+	   assert suBytedWord = x"A6B896D3" report "Test case 4 failed!" severity error;
+		
+		rotatedWord <= x"21987455"; -- example input
+		wait for 10 ns;
+	   assert suBytedWord = x"B0C13D3E" report "Test case 4 failed!" severity error;
+
 		wait; 
 	end process;
 
@@ -107,6 +142,11 @@ end SubBytes_keys_tb;
 		
 
 	   
+	
+	
+	
+	
+	
 	
 	
 	
